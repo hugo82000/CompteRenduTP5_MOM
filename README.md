@@ -36,7 +36,7 @@ private static String getDate()
     }
 ```
 
-Dans le main nous avons créé une boucle while pour arrêter d'envoyer après l'envoi de 10 dates.
+Dans le main nous avons créé une boucle while pour arrêter d'envoyer après l'envoi de 11 dates (de 0 à 10).
 ```jsx
 while (nbDate <= 10) 
     {
@@ -63,4 +63,18 @@ String queueName = channel.queueDeclare().getQueue();
 
 En lançant un envoi et en observant la reception sur deux consommatteurs on observe donc bien qu'ils reçoivent les mêmes messages.
 
-<img src="https://user-images.githubusercontent.com/48157631/74086317-06e38780-4a82-11ea-965b-605d5ed7d1fa.PNG" height="150">
+<img src="https://user-images.githubusercontent.com/48157631/74086317-06e38780-4a82-11ea-965b-605d5ed7d1fa.PNG" height="200">
+
+**Partage d'une même file**
+
+Nous voulons maintenant que les messages ne soient plus dupliqués mais distribués entre les consommateurs via une file 'file_date'
+
+Pour celà on crée la file de la manière suivante :
+
+```jsx
+String queueName = "file_date";
+channel.queueDeclare(queueName, false, false, false, null);
+```
+<img src="https://user-images.githubusercontent.com/48157631/74086503-b4a36600-4a83-11ea-80cf-b965fdb3c2dc.PNG" height="200">
+
+Ici on voit que nous envoyons 11 dates et que les deux consommateurs se partage les messages. En effet, dans la première console de réception on observe 6 messages espacés de 2 secondes et dans l'autre, les 5 autres messages espacés de 2 secondes également.
