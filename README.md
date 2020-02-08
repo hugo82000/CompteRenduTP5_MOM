@@ -51,7 +51,7 @@ La commande `Thread.sleep(1000)` permet de suspendre le thread en cours pendant 
 En lançant le programme on constate que le programme génère une activité dans la console d'administration.
 Au niveau du consommateur on bserve bien la réception de la date toutes les secondes.
 
-<img src="https://user-images.githubusercontent.com/48157631/74085976-f67ddd80-4a7e-11ea-894c-f0f1f11ea6c3.PNG" width="400">
+<img src="https://user-images.githubusercontent.com/48157631/74085976-f67ddd80-4a7e-11ea-894c-f0f1f11ea6c3.PNG" height="150">
 
 **Diffusion**
 
@@ -63,3 +63,4 @@ String queueName = channel.queueDeclare().getQueue();
 
 En lançant un envoi et en observant la reception sur deux consommatteurs on observe donc bien qu'ils reçoivent les mêmes messages.
 
+<img src="https://user-images.githubusercontent.com/48157631/74086317-06e38780-4a82-11ea-965b-605d5ed7d1fa.PNG" height="150">
