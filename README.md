@@ -4,7 +4,7 @@
 *Hugo Mathieux*
 
 ## PARTIE 1 : Création du serveur et communication
-**CloudAMQP**
+### CloudAMQP
 
 Pour réaliser ce TP, nous avons choisi d’utiliser le site [CloudAMQP](https://www.cloudamqp.com/) pour créer notre propre serveur. Après avoir créé une instance, nous avons copié l’URL AMQP que nous avons utilisé dans le code pour l'envoi et pour la réception.
 
@@ -53,7 +53,7 @@ Au niveau du consommateur on bserve bien la réception de la date toutes les sec
 
 <img src="https://user-images.githubusercontent.com/48157631/74085976-f67ddd80-4a7e-11ea-894c-f0f1f11ea6c3.PNG" height="150">
 
-**Diffusion**
+### Diffusion
 
 Pour l'instant les consommateurs utilisent chacun une file temporaire distincte grâce au code suivant. De cette manière, l'exchange distribue à chaque file et chaque consommateur reçoit le même message.
 
@@ -65,7 +65,7 @@ En lançant un envoi et en observant la reception sur deux consommatteurs on obs
 
 <img src="https://user-images.githubusercontent.com/48157631/74086317-06e38780-4a82-11ea-965b-605d5ed7d1fa.PNG" height="200">
 
-**Partage d'une même file**
+### Partage d'une même file
 
 Nous voulons maintenant que les messages ne soient plus dupliqués mais distribués entre les consommateurs via une file 'file_date'
 
@@ -79,7 +79,7 @@ channel.queueDeclare(queueName, false, false, false, null);
 
 Ici on voit que nous envoyons 11 dates et que les deux consommateurs se partage les messages. En effet, dans la première console de réception on observe 6 messages espacés de 2 secondes et dans l'autre, les 5 autres messages espacés de 2 secondes également.
 
-**Routage simple**
+### Routage simple
 
 Nous voulons maintenant utiliser le routage pour envoyer la date gmt sur une clef de routage "gmt" et la date locale sur une clef de routage "locale". Ainsi, on pourra récupérer les dates GMT et locale sur deux consommateurs différents en les envoyant avec un producteur commun.
 
@@ -93,7 +93,7 @@ Après avoir :
 On observe les deux consoles récupérant les messages correspondants à leur clé de routage.
 <img src="https://user-images.githubusercontent.com/48157631/74087463-cb01ef80-4a8c-11ea-826f-48d1fc364275.PNG" height="200">
 
-**Routage par topic**
+### Routage par topic
 
 Le routage par topic est similaire à la méthode vu précédemment.
 
@@ -111,3 +111,6 @@ On observe donc les consoles avec l'envoi et les trois réceptions :
 
 <img src="https://user-images.githubusercontent.com/48157631/74087861-66489400-4a90-11ea-8714-4f8a0eaa1503.PNG" height="200">
 <img src="https://user-images.githubusercontent.com/48157631/74087859-65affd80-4a90-11ea-90ae-9da6dda5781a.PNG" height="200">
+
+
+## PARTIE 3 : Création d'un Chat
