@@ -16,10 +16,7 @@ public class RecevoirDate {
 		Channel channel = connection.createChannel();
 
 		channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
-		/*
-		 * les messages ne sont plus dupliqués mais distribués entre les consommateurs
-		 * via la file
-		 */
+
 		String queueName = channel.queueDeclare().getQueue();
 		channel.queueBind(queueName, EXCHANGE_NAME, "");
 
