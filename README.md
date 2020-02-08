@@ -78,3 +78,5 @@ channel.queueDeclare(queueName, false, false, false, null);
 <img src="https://user-images.githubusercontent.com/48157631/74086503-b4a36600-4a83-11ea-80cf-b965fdb3c2dc.PNG" height="200">
 
 Ici on voit que nous envoyons 11 dates et que les deux consommateurs se partage les messages. En effet, dans la première console de réception on observe 6 messages espacés de 2 secondes et dans l'autre, les 5 autres messages espacés de 2 secondes également.
+
+**Routage simple**
