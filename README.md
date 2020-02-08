@@ -50,3 +50,5 @@ La commande `Thread.sleep(1000)` permet de suspendre le thread en cours pendant 
 
 En lançant le programme on constate que le programme génère une activité dans la console d'administration.
 Au niveau du consommateur on bserve bien la réception de la date toutes les secondes.
+
+![alt tag](https://user-images.githubusercontent.com/48157631/74085924-72c3f100-4a7e-11ea-845f-a68ba11a0ea7.jpg)
