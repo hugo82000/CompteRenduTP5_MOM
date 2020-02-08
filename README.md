@@ -91,6 +91,7 @@ Après avoir :
 - modifié les binding dans les consommateurs
 
 On observe les deux consoles récupérant les messages correspondants à leur clé de routage.
+
 <img src="https://user-images.githubusercontent.com/48157631/74087463-cb01ef80-4a8c-11ea-826f-48d1fc364275.PNG" height="200">
 
 ### Routage par topic
@@ -113,4 +114,3 @@ On observe donc les consoles avec l'envoi et les trois réceptions :
 <img src="https://user-images.githubusercontent.com/48157631/74087859-65affd80-4a90-11ea-90ae-9da6dda5781a.PNG" height="200">
 
 
-## PARTIE 3 : Création d'un Chat
