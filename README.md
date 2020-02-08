@@ -51,4 +51,15 @@ La commande `Thread.sleep(1000)` permet de suspendre le thread en cours pendant 
 En lançant le programme on constate que le programme génère une activité dans la console d'administration.
 Au niveau du consommateur on bserve bien la réception de la date toutes les secondes.
 
-![alt tag](https://user-images.githubusercontent.com/48157631/74085976-f67ddd80-4a7e-11ea-894c-f0f1f11ea6c3.PNG)
+<img src="https://user-images.githubusercontent.com/48157631/74085976-f67ddd80-4a7e-11ea-894c-f0f1f11ea6c3.PNG" width="400">
+
+**Diffusion**
+
+Pour l'instant les consommateurs utilisent chacun une file temporaire distincte grâce au code suivant. De cette manière, l'exchange distribue à chaque file et chaque consommateur reçoit le même message.
+
+```jsx
+String queueName = channel.queueDeclare().getQueue();
+```
+
+En lançant un envoi et en observant la reception sur deux consommatteurs on observe donc bien qu'ils reçoivent les mêmes messages.
+
