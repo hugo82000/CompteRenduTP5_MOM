@@ -115,3 +115,15 @@ On observe donc les consoles avec l'envoi et les trois réceptions :
 
 
 ## PARTIE 3 : Création d'un chat
+
+Pour cette partie, j'ai commencé par la demande au clavier dans une boucle afin de demander trois informations à l'utilisateur et de les stocker dans 3 variables différentes `nom`,`topicChoisi`,`messageChoisi`.
+
+```jsx
+Scanner sc = new Scanner(System.in);
+System.out.println("Identify yourself:");
+String nom = sc.nextLine();
+System.out.println("Choose a topic:");
+String topicChoisi = sc.nextLine();
+System.out.println("Write a message:");
+String messageChoisi = sc.nextLine();
+```
