@@ -187,3 +187,32 @@ Ainsi, on peut savoir quel message a été envoyé, dans quel topic il a été e
 
 ### Réception dans les différents topics
 
+Afin de recevoir les deux informations `nom` et `messageChoisi` j'ai créé une boucle qui affiche dans le topic, le nom de l'utilisateur suivi de son message.
+
+```jsx
+System.out.println(" Welcome to the geeks topic");
+
+DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+	String message = new String(delivery.getBody(), "UTF-8");
+
+	if (mot == 1) {
+		System.out.println(">> " + message);
+		tour++;
+	}
+	if (mot == 0) {
+		System.out.println(message);
+		mot++;
+	}
+
+	if ((tour == 1) && (mot == 1)) {
+		tour = 0;
+		mot = 0;
+	}
+};
+channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
+});
+```
+
+Ainsi, lors de la reception des messages, l'affichage se fera comme suivant :
+
+<img src="https://user-images.githubusercontent.com/48157631/78656390-9b723680-78c7-11ea-9c8a-f9febb73a3ed.PNG" height="200">
