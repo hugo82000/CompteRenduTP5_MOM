@@ -217,3 +217,15 @@ channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
 Ainsi, lors de la reception des messages, l'affichage se fera comme suivant :
 
 <img src="https://user-images.githubusercontent.com/48157631/78664897-39b8c900-78d5-11ea-9813-4c836c6ef86a.png" height="200">
+
+### Chat fonctionnel
+
+Dans cet exemple, j'ai envoyé des messages dans différents topics de la part de différents utilisateur pour vous montrer comment le Chat a été programmé.
+
+#### Producteur
+
+<img src="https://user-images.githubusercontent.com/48157631/78664897-39b8c900-78d5-11ea-9813-4c836c6ef86a.png" length="500">
+
+#### Topics
+
+<img src="https://user-images.githubusercontent.com/48157631/78664897-39b8c900-78d5-11ea-9813-4c836c6ef86a.png" height="200">
