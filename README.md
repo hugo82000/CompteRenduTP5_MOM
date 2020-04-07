@@ -116,7 +116,10 @@ On observe donc les consoles avec l'envoi et les trois réceptions :
 
 ## PARTIE 3 : Création d'un chat
 
-Pour cette partie, j'ai commencé par la demande au clavier dans une boucle afin de demander trois informations à l'utilisateur et de les stocker dans 3 variables différentes `nom`,`topicChoisi`,`messageChoisi`.
+
+### Lecture sur clavier
+
+Pour cette partie, j'ai commencé par la demande au clavier dans une boucle `while(1)` afin de demander trois informations à l'utilisateur et de les stocker dans 3 variables différentes `nom`,`topicChoisi`,`messageChoisi`. Dans le main prncipal, avant chaque envoi, ces information seront donc demandées à l'utilisateur.
 
 ```jsx
 Scanner sc = new Scanner(System.in);
@@ -126,4 +129,24 @@ System.out.println("Choose a topic:");
 String topicChoisi = sc.nextLine();
 System.out.println("Write a message:");
 String messageChoisi = sc.nextLine();
+```
+
+### Envoi sur les différents topics
+
+Ensuite, j'ai utilisé des boucles `if()` pour réagir différemment en fonction du topic choisi par l'utilisateur.
+
+#### Exemple avec le choix du topic `geeks`
+
+```jsx
+if (topicChoisi.equals("geeks")) {
+	String.join(" ", argv);
+
+	channel.basicPublish(EXCHANGE_NAME, "chat.geeks", null, nom.getBytes("UTF-8"));
+	String queueName1 = channel.queueDeclare().getQueue();
+	channel.queueBind(queueName1, EXCHANGE_NAME, "chat.geeks");
+
+	channel.basicPublish(EXCHANGE_NAME, "chat.geeks", null, messageChoisi.getBytes("UTF-8"));
+	String queueName = channel.queueDeclare().getQueue();
+	channel.queueBind(queueName, EXCHANGE_NAME, "chat.geeks");
+}
 ```
