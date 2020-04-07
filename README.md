@@ -171,10 +171,10 @@ else if (topicChoisi.equals("")) {
 }
 ```
 
-Ici, si l'utilisateur ne choisit pas de topic il sera automatiquement dirigé vers le topic ```mri```
+Ici, si l'utilisateur ne choisit pas de topic il sera automatiquement dirigé vers le topic `mri`
 
-Ensuite j'ai ajouté un topic ```trollers```
-Puis après l'envoi, j'ai affiché dans le producteur les informations suivantes :
+Ensuite j'ai ajouté un topic `trollers` selon la même structure que les autres.
+Après l'envoi, j'ai affiché dans le producteur les informations suivantes :
 
 ```jsx
 System.out.println(topicChoisi + "#" + nom + ">" + messageChoisi);
