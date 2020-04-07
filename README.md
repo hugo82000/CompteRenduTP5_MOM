@@ -116,6 +116,7 @@ On observe donc les consoles avec l'envoi et les trois réceptions :
 
 ## PARTIE 3 : Création d'un chat
 
+Pour commencer, j'ai modifié le fichier principal, chargé d'envoyer les messages des différents utilisateurs dans les topics en me basant sur le code du producteur de la partie topic utilisé précédemment.
 
 ### Lecture sur clavier
 
@@ -150,3 +151,33 @@ if (topicChoisi.equals("geeks")) {
 	channel.queueBind(queueName, EXCHANGE_NAME, "chat.geeks");
 }
 ```
+
+Dans cet exemple, on utilise deux variables, une pour envoyer le nom de l'utilisateur et l'autre pour envoyer son message sur le topic geeks.
+
+#### Exemple si l'utilisateur ne choisit pas de topic
+
+```jsx
+else if (topicChoisi.equals("")) {
+	String.join(" ", argv);
+	topicChoisi = ("mri");
+
+	channel.basicPublish(EXCHANGE_NAME, "chat.mri", null, nom.getBytes("UTF-8"));
+	String queueName1 = channel.queueDeclare().getQueue();
+	channel.queueBind(queueName1, EXCHANGE_NAME, "chat.mri");
+
+	channel.basicPublish(EXCHANGE_NAME, "chat.mri", null, messageChoisi.getBytes("UTF-8"));
+	String queueName = channel.queueDeclare().getQueue();
+	channel.queueBind(queueName, EXCHANGE_NAME, "chat.mri");
+}
+```
+
+Ici, si l'utilisateur ne choisit pas de topic il sera automatiquement dirigé vers le topic ```mri```
+
+Ensuite j'ai ajouté un topic ```trollers```
+Puis après l'envoi, j'ai affiché dans le producteur les informations suivantes :
+
+```jsx
+System.out.println(topicChoisi + "#" + nom + ">" + messageChoisi);
+```
+
+Ainsi, on peut savoir quel message a été envoyé, dans quel topic il a été envoyé et par quel utilisateur il a été envoyé.
