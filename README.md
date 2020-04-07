@@ -182,5 +182,8 @@ System.out.println(topicChoisi + "#" + nom + ">" + messageChoisi);
 
 Ainsi, on peut savoir quel message a été envoyé, dans quel topic il a été envoyé et par quel utilisateur il a été envoyé.
 
-
 <img src="https://user-images.githubusercontent.com/48157631/78656390-9b723680-78c7-11ea-9c8a-f9febb73a3ed.PNG" height="400">
+
+
+### Réception dans les différents topics
+
